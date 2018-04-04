@@ -16,11 +16,11 @@ module kone() {
     translate([0,0,wall_diam]) cylinder(kone_ht, kone_wd,wall_diam * wall_to_hole_coef);
   }
 }
-module assembly() {
+module funnel() {
   translate([0,0,tube_len * -1.5]) difference() {
     translate([0,0,tube_len]) kone();
     tube();
   }
 }
 
-assembly();
+funnel();

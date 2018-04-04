@@ -1,26 +1,28 @@
 
 $fn = 85;
 
-wall_diam         = 2;
-kone_wd           = 0.15;
-kone_ht           = 25;
-wall_to_hole_coef = 3;
-tube_len          = 5;
-module tube() {
-  cylinder(tube_len*2);
-}
+case_h = 10;
+case_l = 10;
+case_w = 10;
+wall_w = 1;
+batt_r = 1;
+batt_h = 1;
+butt_r = 1;
+port_r = 1;
 
-module kone() {
+module case() {
   difference() {
-    cylinder(kone_ht, kone_wd,wall_diam * wall_to_hole_coef);
-    translate([0,0,wall_diam]) cylinder(kone_ht, kone_wd,wall_diam * wall_to_hole_coef);
+    cube([case_h, case_l, case_w], center = true);
+    cube([
+      (case_h - wall_w),
+      (case_l - wall_w),
+      (case_w - wall_w)
+    ], center = true);
+    cylinder(r=wall_w*1.1, h=100, center=true);
   }
 }
 module assembly() {
-  translate([0,0,tube_len * -1.5]) difference() {
-    translate([0,0,tube_len]) kone();
-    tube();
-  }
+  case();
 }
 
 assembly();
