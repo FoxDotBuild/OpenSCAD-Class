@@ -1,28 +1,37 @@
 
-$fn = 85;
+$fn = 100;
 
-case_h = 10;
-case_l = 10;
-case_w = 10;
 wall_w = 1;
 batt_r = 1;
-batt_h = 1;
-butt_r = 1;
+batt_h = 10;
+
+case_h = batt_h * 1.5;
+case_l = (batt_r) * 8;
+case_w = (case_l / 2)+(wall_w);
+
+butt_r = 10;
 port_r = 1;
 
-module case() {
+// The main cube (hollow)
+module chasis() {
   difference() {
-    cube([case_h, case_l, case_w], center = true);
-    cube([
-      (case_h - wall_w),
-      (case_l - wall_w),
-      (case_w - wall_w)
-    ], center = true);
-    cylinder(r=wall_w*1.1, h=100, center=true);
+    cube([case_l, case_w, case_h], center=true);
+    translate([0, 0, wall_w]) {
+      cube([(case_l - wall_w), (case_w - wall_w), (case_h - wall_w)], center=true);
+    }
   }
 }
+
+module battery_case() {
+  difference() {
+    cylinder(r=(batt_r + (wall_w / 2)), h=batt_h + wall_w, centered=true);
+    cylinder(r=batt_r, h=batt_h+(wall_w*1.1), centered=true);
+  }
+}
+
 module assembly() {
-  case();
+  chasis();
+  battery_case();
 }
 
 assembly();
