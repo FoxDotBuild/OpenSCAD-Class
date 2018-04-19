@@ -1,4 +1,4 @@
-$fn = 250;
+$fn = 30;
 
 module button() {
   translate([0,0,-10]) difference() {

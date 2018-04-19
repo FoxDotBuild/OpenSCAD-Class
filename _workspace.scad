@@ -1,4 +1,4 @@
-$fn = 75;
+$fn = 30;
 
 HEIGHT = 15;
 RADIUS = 5;

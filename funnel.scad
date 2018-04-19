@@ -1,5 +1,5 @@
 
-$fn = 85;
+$fn = 30;
 
 wall_diam         = 2;
 kone_wd           = 0.15;

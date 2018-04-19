@@ -1,5 +1,5 @@
 
-$fn = 100;
+$fn = 30;
 
 module lemon() {
   hull(){
