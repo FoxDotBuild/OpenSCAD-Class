@@ -8,3 +8,5 @@ module lemon() {
     translate([0,0,40]) sphere(10);
   }
 }
+
+lemon();

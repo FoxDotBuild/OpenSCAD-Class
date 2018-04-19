@@ -6,6 +6,7 @@ kone_wd           = 0.15;
 kone_ht           = 25;
 wall_to_hole_coef = 3;
 tube_len          = 5;
+
 module tube() {
   cylinder(tube_len*2);
 }
