@@ -1,5 +1,5 @@
 use <_hollow_shapes.scad>
-$fn = 30;
+$fn = 90;
 button_r = 5;
 
 module button(char) {

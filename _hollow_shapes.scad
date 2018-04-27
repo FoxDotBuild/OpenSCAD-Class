@@ -1,4 +1,4 @@
-$fn = 30;
+// $fn = 30;
 
 module hollow_sphere(radius, shell_percentage) {
   difference() {

@@ -8,6 +8,8 @@ Shared models in openscad for sharing, learning, blah, blah.
 
 Render all *.scad files and update the README in one swoop!
 
+Robert check this out: [docs](https://github.com/SolidCode/MCAD)
+
 ```
 ruby build.rb
 ```
