@@ -9,7 +9,6 @@ module button(char) {
     translate([x,x,button_r/3]) linear_extrude(height = 2) children();
   }
    dome(button_r, center=true);
-
 }
 
 button() text("R", size=button_r);

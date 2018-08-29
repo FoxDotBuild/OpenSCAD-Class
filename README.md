@@ -55,13 +55,3 @@ Files that `_start_with_an_underscore` won't be rendered.
 # lemon.scad
 
 <img src="lemon.png">
-
-
-# pestel.scad
-
-<img src="pestel.png">
-
-
-# screw.scad
-
-<img src="screw.png">
