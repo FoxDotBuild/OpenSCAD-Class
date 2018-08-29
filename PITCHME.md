@@ -1,5 +1,10 @@
 # What We're Doing Today
 
+ * Learn how to build 3D models on a computer
+ * Learn how to print / cut them on the machines
+
+---
+
 # What Is It?
 
  * It allows you to TYPE OUT descriptions that are transformed into 3D designs.
@@ -8,6 +13,9 @@
    * Cube, Sphere, Cylinder
    * Union, Difference, Intersection, Hull
 
+---
+
+
 # Advantages
 
  * Light Weight
@@ -15,6 +23,9 @@
  * "Parametric" - easily customized
    * Example: Keyboard keys with letters.
    * Battery case: http://mytechexperiments.com/blog/openscad-tips-for-creating-reusable-modules/
+
+---
+
 
 # Disadvantages
 
@@ -26,6 +37,9 @@
    * modules / imports
  * You will forget to add semicolons, I promise.
 
+---
+
+
 # Cool Examples
 
  * COOL: https://www.thingiverse.com/thing:46884
@@ -35,11 +49,17 @@
  * https://www.thingiverse.com/thing:193647
  * https://www.thingiverse.com/thing:44078
 
+---
+
+
 # Installation
 
  * Web Version: http://openscad.net/
  * Desktop Version
  * "Advanced" setup with VSCode.
+
+---
+
 
 # First SCAD: Circle, Sphere, translate, $fn
 
@@ -53,6 +73,9 @@ translate([0,0,-10]) {
 sphere(r=10);
 
 ```
+
+---
+
 
 # Color and Centering
 
@@ -71,6 +94,9 @@ color("red") {
 
 ```
 
+---
+
+
 # Shorter Example
 
 ```
@@ -81,6 +107,9 @@ translate([0,0,-10]) color("blue") circle(10);
 color("red") sphere(r=10);
 
 ```
+
+---
+
 
 # Square / Cube / Cylinder
 
@@ -95,6 +124,9 @@ color("green") cube([8, 16, 24]);
 
 ```
 
+---
+
+
 # Union / Difference / Intersection / Hull
 
 ```
@@ -107,6 +139,9 @@ intersection() {
   translate([-8, 0, 0]) sphere(10);
 }
 ```
+
+---
+
 
 # Variables and "Parametric" Design
 
@@ -122,9 +157,15 @@ intersection() {
 
 ```
 
+---
+
+
 # import("….stl")
 
  * See `ducky.stl`. Might crash the machine!!! Set `$fn` low!
+
+---
+
 
 # Modules
 
@@ -144,22 +185,40 @@ translate([0, 24, 0]) pear(6);
 
 ```
 
+---
+
+
 # DXF Output: 2D cutting your design
 
  * Possible to produce 2D designs.
  * Usually DXF files.
+
+---
+
 
 # STL Output: 3D Printing your Design
 
  * What is GCode?
  * What is "Slicing"?
 
+---
+
+
 # Other Resources
 
  * MCAD Library: https://github.com/openscad/MCAD
  * Watch this: https://www.youtube.com/watch?v=kSqpdPrJAqg
 
+---
+
+
 # Function / include / use
 
+---
+
+
 # rotate / scale / resize / mirror
+
+---
+
 
