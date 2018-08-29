@@ -211,6 +211,22 @@ translate([0, 24, 0]) pear(6);
 
 ---
 
+# Rotate Extrude
+
+```
+rotate_extrude() translate([20, 0, 0]) circle(r = 10);
+```
+
+---
+
+# Minkowski Transform
+
+* Think of a Roomba.
+```
+minkowski() cube([10,10,1]) cylinder(r=2,h=1);
+```
+
+---
 
 # Function / include / use
 
