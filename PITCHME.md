@@ -1,3 +1,11 @@
+# Missing Stuff
+ * Modifier characters: debug (#), transparent (%), disable (*) and show only (!)
+ * https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/
+ * https://www.wikihouse.cc/
+ * https://implicitcad.org/
+
+---
+
 # What We're Doing Today
 
  * Learn how to build 3D models on a computer
@@ -5,6 +13,14 @@
 
 ---
 
+# Why OpenSCAD
+
+ * Parametric Design: Imagine usecase like keyboards, serial numbers, pipe adapters
+ * Version control
+ * Text always wins
+ * OSS
+
+---
 # What Is It?
 
  * It allows you to TYPE OUT descriptions that are transformed into 3D designs.
