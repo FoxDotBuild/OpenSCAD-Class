@@ -1,4 +1,3 @@
-
 ## Openscad Models
 
 Shared models in openscad for sharing, learning, blah, blah.
@@ -17,6 +16,10 @@ ruby build.rb
 
 Files that `_start_with_an_underscore` won't be rendered.
 
+# Resources
+
+ * [BOSL2](https://github.com/revarbat/BOSL2)
+ * [Unofficial libraries](https://openscad.org/libraries.html)
 # booleans.scad
 
 <img src="booleans.png">

@@ -15,3 +15,8 @@ ruby build.rb
 # Notes
 
 Files that `_start_with_an_underscore` won't be rendered.
+
+# Resources
+
+ * [BOSL2](https://github.com/revarbat/BOSL2)
+ * [Unofficial libraries](https://openscad.org/libraries.html)
