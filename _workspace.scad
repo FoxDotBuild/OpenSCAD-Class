@@ -1,12 +1,10 @@
-$fn = 100;
-
-module pear(scale_factor = 50) {
-  hull() {
-    translate([0, 0, -(scale_factor*2)]) sphere(scale_factor * 2);
-    sphere(scale_factor);
-  }
-}
-
-pear(2);
-translate([0, 9, 0]) pear(4);
-translate([0, 24, 0]) pear(6);
+$fn = 111;
+size = 10;
+// hull() {
+  translate([0, 0, size]) color("blue") sphere(r = size);
+  translate([0, size, 0]) color("red") sphere(r = size);
+  translate([size, 0, 0]) color("green") sphere(r = size);
+  translate([-size, 0, 0]) color("purple") sphere(r = size);
+  translate([0, -size, 0]) color("orange") sphere(r = size);
+  translate([0, 0, -size]) color("yellow") sphere(r = size);
+// }

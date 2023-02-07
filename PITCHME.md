@@ -3,7 +3,9 @@
  * https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/
  * https://www.wikihouse.cc/
  * https://implicitcad.org/
-
+ * https://openscad.cloud/openscad/
+ * https://github.com/DSchroer/openscad-wasm
+ 
 ---
 
 # What We're Doing Today
@@ -71,6 +73,7 @@
 # Installation
 
  * Web Version: http://openscad.net/
+ * CloudSCAD for the browser
  * Desktop Version
  * "Advanced" setup with VSCode.
 
@@ -97,6 +100,12 @@ sphere(r=10);
 
 ```
 $fn = 100;
+
+translate([0,0,-10]) {
+  color("green") {
+    circle(10);
+  };
+};
 
 translate([0,0,-10]) {
   color("blue") {
@@ -204,7 +213,7 @@ translate([0, 24, 0]) pear(6);
 ---
 
 
-# DXF Output: 2D cutting your design
+# DXF Output: Laser Cut Your Design
 
  * Possible to produce 2D designs.
  * Usually DXF files.
@@ -218,7 +227,6 @@ translate([0, 24, 0]) pear(6);
  * What is "Slicing"?
 
 ---
-
 
 # Other Resources
 
