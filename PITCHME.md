@@ -1,13 +1,18 @@
-# Missing Stuff
- * Modifier characters: debug (#), transparent (%), disable (*) and show only (!)
- * https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/
- * https://www.wikihouse.cc/
- * https://implicitcad.org/
- * https://openscad.cloud/openscad/
- * https://github.com/DSchroer/openscad-wasm
- 
+---
+marp: true
 ---
 
+# What is OpenSCAD?
+
+Examples:
+
+ * [3D Printable QR Codes](https://www.thingiverse.com/thing:46884)
+ * [3D Printable Lock Keys](https://hackaday.io/project/27631-3d-printing-real-world-keys/log/68517-better-modeling)
+ * [An Entire Theme Park](https://twitter.com/MPHtechnology/status/926495481534078976)
+ * [Nut/Bolt Framework](https://www.thingiverse.com/thing:193647)
+ * [Flexible Coupling](https://www.thingiverse.com/thing:44078)
+
+---
 # What We're Doing Today
 
  * Learn how to build 3D models on a computer
@@ -36,11 +41,10 @@
 
 # Advantages
 
- * Light Weight
- * Good for versioning and long term projects.
+ * Light Weight - runs in desktop or [browser](https://openscad.cloud/openscad/) 
+ * Good for **versioning** and long term projects.
  * "Parametric" - easily customized
-   * Example: Keyboard keys with letters.
-   * Battery case: http://mytechexperiments.com/blog/openscad-tips-for-creating-reusable-modules/
+   * Example: cutting keys, QR codes, engravings
 
 ---
 
@@ -58,18 +62,6 @@
 ---
 
 
-# Cool Examples
-
- * COOL: https://www.thingiverse.com/thing:46884
- * COOL: https://hackaday.io/project/27631-3d-printing-real-world-keys/log/68517-better-modeling
- * https://twitter.com/MPHtechnology/status/926495481534078976
- * http://www.cyberward.net/blog/tag/openscad/
- * https://www.thingiverse.com/thing:193647
- * https://www.thingiverse.com/thing:44078
-
----
-
-
 # Installation
 
  * Web Version: http://openscad.net/
@@ -82,8 +74,8 @@
 
 # First SCAD: Circle, Sphere, translate, $fn
 
-```
-$fn = 100;
+```c
+$fn = 100; // We will cover "special variabless" later.
 
 translate([0,0,-10]) {
   circle(10);
@@ -98,7 +90,7 @@ sphere(r=10);
 
 # Color and Centering
 
-```
+```c
 $fn = 100;
 
 translate([0,0,-10]) {
@@ -124,7 +116,7 @@ color("red") {
 
 # Shorter Example
 
-```
+```c
 $fn = 100;
 
 translate([0,0,-10]) color("blue") circle(10);
@@ -139,8 +131,7 @@ color("red") sphere(r=10);
 # Square / Cube / Cylinder
 
 
-```
-
+```c
 $fn = 100;
 
 color("blue") square(12);
@@ -154,8 +145,7 @@ color("green") cube([8, 16, 24]);
 
 # Union / Difference / Intersection / Hull
 
-```
-
+```c
 $fn = 100;
 
 // Try "hull", "union", "intersection", "difference"
@@ -170,8 +160,7 @@ intersection() {
 
 # Variables and "Parametric" Design
 
-```
-
+```c
 $fn = 100;
 scale_factor = 50; // Try changing this.
 
@@ -184,7 +173,40 @@ intersection() {
 
 ---
 
+# Special Variables, Part I
 
+| Variable  | Usage                                |
+|-----------|--------------------------------------|
+| $fa       | minimum angle                        |
+| $fs       | minimum size                         |
+| $fn       | number of fragments                  |
+| $t        | animation step                       |
+| $vpr      | viewport rotation angles in degrees  |
+
+---
+
+# Special Variables, Part II
+
+| Variable  | Usage                                |
+|-----------|--------------------------------------|
+| $vpt      | viewport translation                 |
+| $vpd      | viewport camera distance             |
+| $vpf      | viewport camera field of view        |
+| $children | number of module children            |
+| $preview  | true in F5 preview, false for F6     |
+
+---
+
+# Modifier Characters
+
+|Symbol | Usage       |
+|-------|-------------|
+| #     | debug       |
+| %     | transparent |
+| *     | disable     |
+| !     | show only   |
+
+---
 # import("….stl")
 
  * See `ducky.stl`. Might crash the machine!!! Set `$fn` low!
@@ -194,7 +216,7 @@ intersection() {
 
 # Modules
 
-```
+```c
 $fn = 100;
 
 module pear(scale_factor = 50) {
@@ -207,11 +229,9 @@ module pear(scale_factor = 50) {
 pear(2);
 translate([0, 9, 0]) pear(4);
 translate([0, 24, 0]) pear(6);
-
 ```
 
 ---
-
 
 # DXF Output: Laser Cut Your Design
 
@@ -237,7 +257,7 @@ translate([0, 24, 0]) pear(6);
 
 # Rotate Extrude
 
-```
+```c
 rotate_extrude() translate([20, 0, 0]) circle(r = 10);
 ```
 
@@ -246,7 +266,8 @@ rotate_extrude() translate([20, 0, 0]) circle(r = 10);
 # Minkowski Transform
 
 * Think of a Roomba.
-```
+
+```c
 minkowski() cube([10,10,1]) cylinder(r=2,h=1);
 ```
 
@@ -261,4 +282,12 @@ minkowski() cube([10,10,1]) cylinder(r=2,h=1);
 
 ---
 
+# Resources
 
+ * https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/
+ * https://www.wikihouse.cc/
+ * https://implicitcad.org/
+ * https://openscad.cloud/openscad/
+ * https://github.com/DSchroer/openscad-wasm
+ 
+---
