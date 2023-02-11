@@ -10,42 +10,31 @@ marp: true
 
 # What is OpenSCAD?
 
-Let's look at what it can do first:
-
  * [3D Printable QR Codes](https://www.thingiverse.com/thing:46884)
  * [3D Printable Lock Keys](https://hackaday.io/project/27631-3d-printing-real-world-keys/log/68517-better-modeling)
  * [An Entire Theme Park](https://twitter.com/MPHtechnology/status/926495481534078976)
  * [Nut/Bolt Framework](https://www.thingiverse.com/thing:193647)
  * [Flexible Coupling](https://www.thingiverse.com/thing:44078)
+ * [A 3D Printed Peristaltic Pump](https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/)
 
 ---
 
 # What Is It?
 
- * A CAD program where designs are written with code.
- * It is _not_ interactive, and that has advantages.
-   * If you've never programmed before, you came to the wrong class. Sorry.
- * Everything is made from cylinders, cones, cubes, 2D shapes and "transforms"
-   * Example: A pipe is a cylinder with a cylinder "subtracted" from its center.
-   * Example: A 
+ * Computer code => 2D/3D CAD Designs 
+ * _Not_ interactive. No point-and-click.
+ * Class assumes programming experience.
+ * Objects + Transformations = CAD design
+ * Example: A pipe is a cylinder with a cylinder "subtracted" from its center.
 ---
 
 # Why OpenSCAD
 
- * Parametric Design: Imagine usecase like keyboards, serial numbers, pipe adapters
- * Allows safe storage of designs in version control
- * Text always wins
+ * Parametric Design: Usecase serial numbers, key cutting, pipe adapters, QR Codes
+ * Text is easy to automate, store, version, transform, etc..
  * Open source = community driven and free
-
----
-
-# Advantages
-
- * Light Weight - runs in desktop or [browser](https://openscad.cloud/openscad/) 
- * Good for **versioning** and long term projects.
+ * Light weight, runs in desktop or [browser](https://openscad.cloud/openscad/) 
  * Supports 3D and 2D CAD (laser cutter, 3D printer, X-Carve, etc..)
- * "Parametric" - easily customized
-   * Example: cutting keys, QR codes, engravings
 
 ---
 # Disadvantages
@@ -65,10 +54,7 @@ Let's look at what it can do first:
  * CloudSCAD for the browser
  * Desktop Version
  * "Advanced" setup with VSCode.
- * Derivitive works
-   * https://implicitcad.org/
-   * https://openjscad.azurewebsites.net/
-   * https://openjscad.xyz/#
+ * Derivitive works: [Implicitcad](https://implicitcad.org/), [OpenJSCad](https://openjscad.xyz/#)
 
 ---
 
@@ -260,8 +246,8 @@ translate([0, 24, 0]) pear(6);
 
 # Other Resources
 
- * MCAD Library: https://github.com/openscad/MCAD
- * Watch this: https://www.youtube.com/watch?v=kSqpdPrJAqg
+ * [MCAD Library](https://github.com/openscad/MCAD)
+ * [Model a Bearing in 10 Minutes](https://www.youtube.com/watch?v=kSqpdPrJAqg)
 
 ---
 
@@ -284,20 +270,30 @@ minkowski() cube([10,10,1]) cylinder(r=2,h=1);
 ---
 
 # Exploring the Settings Menu
----
-# Function / include / use
+
+Let's take a look.
 
 ---
+# Stuff I Did Not Cover
 
-# rotate / scale / resize / mirror
+ * `function`
+ * `include`
+ * `mirror`
+ * `resize`
+ * `rotate`
+ * `scale`
+ * `use`
 
 ---
 
-# Resources
+# Laser Cutting a 2D Design
 
- * https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/
- * https://www.wikihouse.cc/
- * https://openscad.cloud/openscad/
- * https://github.com/DSchroer/openscad-wasm
- 
+---
+
+# Printing a 3D Design
+
+---
+
+# Thanks!
+
 ---
