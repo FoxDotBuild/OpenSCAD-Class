@@ -2,9 +2,15 @@
 marp: true
 ---
 
+# What We're Doing Today
+
+ * Learn how to build 3D models on a computer
+ * Learn how to print / cut them on the machines
+---
+
 # What is OpenSCAD?
 
-Examples:
+Let's look at what it can do first:
 
  * [3D Printable QR Codes](https://www.thingiverse.com/thing:46884)
  * [3D Printable Lock Keys](https://hackaday.io/project/27631-3d-printing-real-world-keys/log/68517-better-modeling)
@@ -13,47 +19,39 @@ Examples:
  * [Flexible Coupling](https://www.thingiverse.com/thing:44078)
 
 ---
-# What We're Doing Today
 
- * Learn how to build 3D models on a computer
- * Learn how to print / cut them on the machines
+# What Is It?
 
+ * A CAD program where designs are written with code.
+ * It is _not_ interactive, and that has advantages.
+   * If you've never programmed before, you came to the wrong class. Sorry.
+ * Everything is made from cylinders, cones, cubes, 2D shapes and "transforms"
+   * Example: A pipe is a cylinder with a cylinder "subtracted" from its center.
+   * Example: A 
 ---
 
 # Why OpenSCAD
 
  * Parametric Design: Imagine usecase like keyboards, serial numbers, pipe adapters
- * Version control
+ * Allows safe storage of designs in version control
  * Text always wins
- * OSS
+ * Open source = community driven and free
 
 ---
-# What Is It?
-
- * It allows you to TYPE OUT descriptions that are transformed into 3D designs.
- * It is _not_ interactive, and that has advantages.
- * Everything is made from basic shapes and "transforms"
-   * Cube, Sphere, Cylinder
-   * Union, Difference, Intersection, Hull
-
----
-
 
 # Advantages
 
  * Light Weight - runs in desktop or [browser](https://openscad.cloud/openscad/) 
  * Good for **versioning** and long term projects.
+ * Supports 3D and 2D CAD (laser cutter, 3D printer, X-Carve, etc..)
  * "Parametric" - easily customized
    * Example: cutting keys, QR codes, engravings
 
 ---
-
-
 # Disadvantages
 
  * Higher learning curve
- * Less interactive
- * Some features assume prior programming experience
+ * Assumes computer programming experience:
    * loops
    * variables
    * modules / imports
@@ -61,23 +59,25 @@ Examples:
 
 ---
 
-
 # Installation
 
  * Web Version: http://openscad.net/
  * CloudSCAD for the browser
  * Desktop Version
  * "Advanced" setup with VSCode.
+ * Derivitive works
+   * https://implicitcad.org/
+   * https://openjscad.azurewebsites.net/
+   * https://openjscad.xyz/#
 
 ---
 
-
-# First SCAD: Circle, Sphere, translate, $fn
+# Our First OpenSCAD Design
 
 ```c
 $fn = 100; // We will cover "special variabless" later.
 
-translate([0,0,-10]) {
+translate([0, 0, -10]) {
   circle(10);
 };
 
@@ -86,7 +86,6 @@ sphere(r=10);
 ```
 
 ---
-
 
 # Color and Centering
 
@@ -173,6 +172,15 @@ intersection() {
 
 ---
 
+# Exercise
+
+ * Build a pipe that can be customized via the customizer:
+   * Pipe length
+   * Pipe outter diameter
+   * Pipe inner diameter
+   * Color
+
+---
 # Special Variables, Part I
 
 | Variable  | Usage                                |
@@ -215,6 +223,8 @@ intersection() {
 
 
 # Modules
+
+SEE `LetterBlock.scad` in OpenSCAD "Examples" section.
 
 ```c
 $fn = 100;
@@ -273,10 +283,11 @@ minkowski() cube([10,10,1]) cylinder(r=2,h=1);
 
 ---
 
+# Exploring the Settings Menu
+---
 # Function / include / use
 
 ---
-
 
 # rotate / scale / resize / mirror
 
@@ -286,7 +297,6 @@ minkowski() cube([10,10,1]) cylinder(r=2,h=1);
 
  * https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/
  * https://www.wikihouse.cc/
- * https://implicitcad.org/
  * https://openscad.cloud/openscad/
  * https://github.com/DSchroer/openscad-wasm
  
