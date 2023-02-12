@@ -58,3 +58,8 @@ Files that `_start_with_an_underscore` won't be rendered.
 # lemon.scad
 
 <img src="lemon.png">
+
+
+# nut.scad
+
+<img src="nut.png">

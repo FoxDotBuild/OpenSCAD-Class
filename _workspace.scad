@@ -1,5 +1,2 @@
-$fn = 100;
-
-color("blue") square(12);
-color("red") cube(10);
-color("green") cube([8, 16, 24]);
+rotate_extrude() translate([20, 0, 0]) circle(r = 10);
+linear_extrude() translate([40, 0, 0]) circle(r = 10);

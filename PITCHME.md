@@ -6,16 +6,18 @@ marp: true
 
  * Learn how to build 3D models on a computer
  * Learn how to print / cut them on the machines
+ * Class assumes programming experience.
+
 ---
 
 # What is OpenSCAD?
 
  * [3D Printable QR Codes](https://www.thingiverse.com/thing:46884)
  * [3D Printable Lock Keys](https://hackaday.io/project/27631-3d-printing-real-world-keys/log/68517-better-modeling)
- * [An Entire Theme Park](https://twitter.com/MPHtechnology/status/926495481534078976)
- * [Nut/Bolt Framework](https://www.thingiverse.com/thing:193647)
+ * [Nut/Bolt Framework](https://www.thingiverse.com/thing:193647) (SEE: `nut.stl`)
  * [Flexible Coupling](https://www.thingiverse.com/thing:44078)
  * [A 3D Printed Peristaltic Pump](https://hackaday.com/2014/09/16/a-3d-printed-peristaltic-pump/)
+ * [An Entire Theme Park](https://twitter.com/MPHtechnology/status/926495481534078976)
 
 ---
 
@@ -23,7 +25,6 @@ marp: true
 
  * Computer code => 2D/3D CAD Designs 
  * _Not_ interactive. No point-and-click.
- * Class assumes programming experience.
  * Objects + Transformations = CAD design
  * Example: A pipe is a cylinder with a cylinder "subtracted" from its center.
 ---
@@ -32,6 +33,7 @@ marp: true
 
  * Parametric Design: Usecase serial numbers, key cutting, pipe adapters, QR Codes
  * Text is easy to automate, store, version, transform, etc..
+   * Easily integrates into larger applications/scripts
  * Open source = community driven and free
  * Light weight, runs in desktop or [browser](https://openscad.cloud/openscad/) 
  * Supports 3D and 2D CAD (laser cutter, 3D printer, X-Carve, etc..)
@@ -50,9 +52,8 @@ marp: true
 
 # Installation
 
- * Web Version: http://openscad.net/
- * CloudSCAD for the browser
- * Desktop Version
+ * Web Version: https://openscad.cloud/openscad/
+ * Desktop Version: https://openscad.org/
  * "Advanced" setup with VSCode.
  * Derivitive works: [Implicitcad](https://implicitcad.org/), [OpenJSCad](https://openjscad.xyz/#)
 
@@ -61,7 +62,6 @@ marp: true
 # Our First OpenSCAD Design
 
 ```c
-$fn = 100; // We will cover "special variabless" later.
 
 translate([0, 0, -10]) {
   circle(10);
@@ -73,10 +73,9 @@ sphere(r=10);
 
 ---
 
-# Color and Centering
+# Color
 
 ```c
-$fn = 100;
 
 translate([0,0,-10]) {
   color("green") {
@@ -99,10 +98,9 @@ color("red") {
 ---
 
 
-# Shorter Example
+# No Curly Braces
 
 ```c
-$fn = 100;
 
 translate([0,0,-10]) color("blue") circle(10);
 
@@ -117,7 +115,6 @@ color("red") sphere(r=10);
 
 
 ```c
-$fn = 100;
 
 color("blue") square(12);
 color("red") cube(10);
@@ -127,26 +124,46 @@ color("green") cube([8, 16, 24]);
 
 ---
 
-
 # Union / Difference / Intersection / Hull
 
-```c
-$fn = 100;
+Let's examine all four.
 
-// Try "hull", "union", "intersection", "difference"
-intersection() {
+```c
+translate([0,20,0]) hull() {
   sphere(10);
-  translate([-8, 0, 0]) sphere(10);
+  translate([-10, 0, 0]) sphere(10);
+}
+translate([0,0,0])  union() {
+  sphere(10);
+  translate([-10, 0, 0]) sphere(10);
+}
+translate([0,-40,0]) intersection() {
+  sphere(10);
+  translate([-10, 0, 0]) sphere(10);
+}
+translate([0,-20,0]) difference() {
+  sphere(10);
+  translate([-10, 0, 0]) sphere(10);
 }
 ```
 
 ---
 
+# 2D CAD
 
+Example: Computer generated serial number tag / name tag.
+
+```c
+difference() {
+  square([48, 12]);
+  translate([46, 10, 0]) circle(d = 2);
+  translate([3, 3, 0]) text("01GS3TWM8KVFY9", size=3);
+}
+```
+---
 # Variables and "Parametric" Design
 
 ```c
-$fn = 100;
 scale_factor = 50; // Try changing this.
 
 intersection() {
@@ -155,17 +172,6 @@ intersection() {
 }
 
 ```
-
----
-
-# Exercise
-
- * Build a pipe that can be customized via the customizer:
-   * Pipe length
-   * Pipe outter diameter
-   * Pipe inner diameter
-   * Color
-
 ---
 # Special Variables, Part I
 
@@ -205,6 +211,12 @@ intersection() {
 
  * See `ducky.stl`. Might crash the machine!!! Set `$fn` low!
 
+```c
+$fn = 1;
+
+import("ducky.stl");
+```
+
 ---
 
 
@@ -213,7 +225,6 @@ intersection() {
 SEE `LetterBlock.scad` in OpenSCAD "Examples" section.
 
 ```c
-$fn = 100;
 
 module pear(scale_factor = 50) {
   hull() {
@@ -228,12 +239,49 @@ translate([0, 24, 0]) pear(6);
 ```
 
 ---
+# Extrusion
+
+```c
+rotate_extrude() translate([20, 0, 0]) circle(r = 10);
+linear_extrude() translate([40, 0, 0]) circle(r = 10);
+```
+
+---
+
+# Minkowski Transform
+
+* Think of a Roomba.
+
+```c
+minkowski() {
+  cube([10,10,1]);
+  cylinder(r=2,h=1);
+}
+```
+
+---
+# Stuff I Did Not Cover
+
+Now we will move on to higher-level topics.
+
+Here are things you can research independently:
+
+ * `function`
+ * `mirror`
+ * `resize`
+ * `rotate`
+ * `scale`
+ * `use`
+
+---
 
 # DXF Output: Laser Cut Your Design
 
+Let's use the 2D esign from before.
+
  * Possible to produce 2D designs.
  * Usually DXF files.
-
+ * Useful for plates, serial numbers, etc...
 ---
 
 
@@ -244,54 +292,25 @@ translate([0, 24, 0]) pear(6);
 
 ---
 
-# Other Resources
-
- * [MCAD Library](https://github.com/openscad/MCAD)
- * [Model a Bearing in 10 Minutes](https://www.youtube.com/watch?v=kSqpdPrJAqg)
-
----
-
-# Rotate Extrude
-
-```c
-rotate_extrude() translate([20, 0, 0]) circle(r = 10);
-```
-
----
-
-# Minkowski Transform
-
-* Think of a Roomba.
-
-```c
-minkowski() cube([10,10,1]) cylinder(r=2,h=1);
-```
-
----
-
 # Exploring the Settings Menu
 
 Let's take a look.
 
 ---
-# Stuff I Did Not Cover
+# Other Resources
 
- * `function`
- * `include`
- * `mirror`
- * `resize`
- * `rotate`
- * `scale`
- * `use`
+ * [MCAD Library](https://github.com/openscad/MCAD)
+ * [BOSL/BOSL2](https://github.com/revarbat/BOSL)
+ * [Model a Bearing in 10 Minutes](https://www.youtube.com/watch?v=kSqpdPrJAqg)
 
 ---
+# Exercise
 
-# Laser Cutting a 2D Design
-
----
-
-# Printing a 3D Design
-
+ * Build a pipe that can be customized via the customizer:
+   * Pipe length
+   * Pipe outter diameter
+   * Pipe inner diameter
+   * Color
 ---
 
 # Thanks!
