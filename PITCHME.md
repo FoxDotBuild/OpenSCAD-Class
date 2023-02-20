@@ -2,6 +2,14 @@
 marp: true
 ---
 
+# OpenSCAD Class
+
+February 12 2023
+
+![./cool_ball_wow.png](./cool_ball_wow.png)
+
+---
+
 # What We're Doing Today
 
  * Learn how to build 3D models on a computer
@@ -299,8 +307,9 @@ Let's take a look.
 ---
 # Other Resources
 
- * [MCAD Library](https://github.com/openscad/MCAD)
- * [BOSL/BOSL2](https://github.com/revarbat/BOSL)
+ * [MCAD](https://github.com/openscad/MCAD)
+ * [BOSL](https://github.com/revarbat/BOSL)
+ * [BOLTS](https://boltsparts.github.io/en/parts/names/V_slot20x20mm.html)
  * [Model a Bearing in 10 Minutes](https://www.youtube.com/watch?v=kSqpdPrJAqg)
 
 ---
