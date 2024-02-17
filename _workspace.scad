@@ -1,5 +1,11 @@
-difference() {
-  square([48, 12]);
-  translate([46, 10, 0]) circle(d = 2);
-  translate([3, 3, 0]) text("01GS3TWM8KVFY9", size=3);
+OPENSCAD_LENGTH = 90;
+PAPER_LENGTH = 80;
+scale(OPENSCAD_LENGTH / PAPER_LENGTH) {
+  translate([ 23, 0, 0 ])
+  circle(d = 24.26);
+  translate([ 0, 21, 0 ])
+  circle(d = 21.21);
+  translate([ -19, 0, 0 ])
+  circle(d = 17.91);
+  circle(d = 19.05);
 }
