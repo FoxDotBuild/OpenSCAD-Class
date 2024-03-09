@@ -182,15 +182,7 @@ difference() {
 
 # Variables and "Parametric" Design
 
-```c
-scale_factor = 50; // Try changing this.
-
-intersection() {
-  sphere(scale_factor);
-  translate([-(scale_factor*2), 0, 0]) sphere(scale_factor * 2);
-}
-
-```
+"candleStand.scad" in File -> Examples
 
 ---
 
@@ -243,7 +235,9 @@ import("ducky.stl");
 
 # Modules
 
-SEE `LetterBlock.scad` in OpenSCAD "Examples" section.
+File -> Examples -> Basics -> `LetterBlock.scad`
+
+in OpenSCAD "Examples" section.
 
 ```c
 
